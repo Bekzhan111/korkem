@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import backgroundImg from "../assets/detailsBackground.png";
 import {
   HeartIcon,
   BackspaceIcon,
@@ -33,6 +32,7 @@ function PhotoDetails({ addToFavorites, removeFromFavorites, favorites }) {
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
   if (!photo) return <div className="text-center mt-10">Photo not found</div>;
+  console.log(favorites);
 
   const isFavorite = favorites.find((fav) => fav.id === photo.id);
 
@@ -61,9 +61,9 @@ function PhotoDetails({ addToFavorites, removeFromFavorites, favorites }) {
   return (
     <div className="relative w-full px-[2%] sm:px-[10%]">
       <img
-        src={backgroundImg}
+        src={photo.urls.regular}
         alt="background"
-        className="absolute inset-0 w-full h-auto object-cover z-0 hidden sm:block"
+        className="absolute inset-0 w-full h-[70%] object-cover z-0 brightness-50 hidden sm:block"
       />
       <div className="relative z-10 w-full">
         <div className="container mx-auto flex justify-between items-center py-[20px]">
@@ -90,9 +90,9 @@ function PhotoDetails({ addToFavorites, removeFromFavorites, favorites }) {
               className="w-10 h-10 bg-white rounded-[5px] flex items-center justify-center shadow hover:shadow-md transition"
             >
               {isFavorite ? (
-                <HeartIcon className="w-6 h-6 text-black" />
-              ) : (
                 <BackspaceIcon className="w-6 h-6 text-black" />
+              ) : (
+                <HeartIcon className="w-6 h-6 text-black" />
               )}
             </button>
             <button

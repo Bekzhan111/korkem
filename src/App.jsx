@@ -30,7 +30,6 @@ function App() {
 
   const showSearchLink = isFavoritesPage || isPhotoDetailsPage;
   const showFavoritesLink = isHomePage || isPhotoDetailsPage;
-  console.log(showSearchLink + " and " + showFavoritesLink);
 
   return (
     <div className="min-h-screen">

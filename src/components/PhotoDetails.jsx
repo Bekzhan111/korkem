@@ -32,7 +32,6 @@ function PhotoDetails({ addToFavorites, removeFromFavorites, favorites }) {
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
   if (!photo) return <div className="text-center mt-10">Photo not found</div>;
-  console.log(favorites);
 
   const isFavorite = favorites.find((fav) => fav.id === photo.id);
 
